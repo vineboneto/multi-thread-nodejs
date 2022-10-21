@@ -1,6 +1,6 @@
 ## Worker threads with NODEJS
 
-Estudando de caso com utilização de threads com NodeJS
+Estudo da utilização de threads com NodeJS
 
 ## Requerimentos
 
