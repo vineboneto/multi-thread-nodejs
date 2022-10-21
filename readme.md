@@ -6,6 +6,7 @@ Estudo da utilização de threads com NodeJS
 
  - NodeJS >= 16.X
  - Postgres
+ - OS: Windows(Testado) ou Linux(Não testado)
 
 ## Começando
 

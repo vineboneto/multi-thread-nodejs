@@ -2,8 +2,12 @@ const { execSync } = require('node:child_process')
 
 function getCurrentThreadCountWindows() {
   // Obtém quantidade de threads do process e conta
-  const script = `((get-process -pid ${process.pid})|select-object  -ExpandProperty Threads | Measure).Count`
-  return parseInt(execSync(script, { shell: 'powershell.exe' })?.toString())
+  const script =
+    process.platform === 'win32'
+      ? `((get-process -pid ${process.pid})|select-object  -ExpandProperty Threads | Measure).Count`
+      : `ps huH p ${process.pid} | wc -l`
+
+  return parseInt(execSync(script, { shell: process.platform === 'win32' && 'powershell.exe' })?.toString())
 }
 
 const nodejsDefaultThreadNumber = getCurrentThreadCountWindows() - 1 // ignora o process
