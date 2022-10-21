@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "node src/",
+    "seed": "node src/seed.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@prisma/client": "^4.5.0",
+    "prettier": "^2.7.1",
+    "prisma": "^4.4.0"
+  }
+}
