@@ -18,7 +18,7 @@ $ yarn
 # Criar database
 $ yarn prisma db push
 
-# Criar banco de dados
+# Criar dados fake
 $ yarn seed
 
 # Executar default --thread
