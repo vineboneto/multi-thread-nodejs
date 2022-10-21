@@ -1,7 +1,7 @@
-const intervalId = require('./debug')
 const { Worker } = require('node:worker_threads')
 const path = require('node:path')
 const prisma = require('./db')
+const intervalId = require('./debug')
 
 async function createThread(data = undefined) {
   const worker = new Worker(path.join(__dirname, 'worker.js'))
