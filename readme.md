@@ -9,6 +9,8 @@ Estudando de caso com utilização de threads com NodeJS
 
 ## Começando
 
+Criar `.env` com base em `.env.example` para se conectar ao banco.
+
 ```bash
 # Dependências
 $ yarn
