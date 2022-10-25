@@ -1,7 +1,8 @@
 const { Worker } = require('node:worker_threads')
 const path = require('node:path')
-const prisma = require('./db')
 const intervalId = require('./debug')
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 async function createThread(data = undefined) {
   const worker = new Worker(path.join(__dirname, 'worker.js'))
@@ -18,8 +19,8 @@ async function createPromise() {
   const promise = new Promise(async (resolve, reject) => {
     let counter = 0
     for (let i = 0; i < 1e1; i++) {
-      const data = await prisma.tbl_temp.count()
-      counter += data
+      await sleep(50)
+      counter += i
     }
     resolve(counter)
   })
@@ -32,16 +33,16 @@ async function monoThread() {
 
   console.time()
   for (let i = 0; i < 1e1; i++) {
-    const data = await prisma.tbl_temp.count()
-    counter += data
+    await sleep(50)
+    counter += i
   }
   for (let i = 0; i < 1e1; i++) {
-    const data = await prisma.tbl_temp.count()
-    counter += data
+    await sleep(50)
+    counter += i
   }
   for (let i = 0; i < 1e1; i++) {
-    const data = await prisma.tbl_temp.count()
-    counter += data
+    await sleep(50)
+    counter += i
   }
 
   console.log(counter)
