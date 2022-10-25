@@ -3,7 +3,6 @@
     "start": "node src/"
   },
   "dependencies": {
-    "@faker-js/faker": "^7.6.0",
     "prettier": "^2.7.1"
   }
 }
